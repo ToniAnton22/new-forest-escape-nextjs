@@ -19,9 +19,7 @@ export async function handler(req,res){
                     password: req?.query?.password,
                     lastName: req?.query?.lastName,
                     delegated: req?.query?.delegate      
-                })
-
-                
+                })                
             }
             if(req?.query?.role === "Homeowner"){
                 user = await Users.create({

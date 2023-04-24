@@ -1,17 +1,17 @@
-import NextAuth, { NextAuthOptions } from "next-auth"
+import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialProvider from "next-auth/providers/credentials"
-import {hash,compare} from "bcrypt"
+import {hash} from "bcrypt"
 
 export const authOptions = {
-  // https://next-auth.js.org/configuration/providers/oauth
+
   providers: [
     CredentialProvider({
         name:"Credentials",
 
         async authorize(credentials,req){
             const {email,password,firstname,lastname,delegate,role} = credentials
-            const hashedPassword = hash(password,process.env.SALT_ROUNDS)
+            const hashedPassword =hash(password,process.env.SALT_ROUNDS)
             const details = {
                 email:email,
                 password:hashedPassword,
