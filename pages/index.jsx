@@ -27,7 +27,8 @@ export async function getServerSideProps(context) {
 
 export default function Home({
   isConnected,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}) 
+{
   return (
     <div className="container">
       <Head>
