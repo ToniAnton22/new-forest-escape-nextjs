@@ -1,4 +1,4 @@
-import Homeowner from "../../../../lib/schema/Users"
+import House from "../../../../lib/schema/Houses"
 
 export async function handler(req,res){
     if(!req?.body){
@@ -9,7 +9,7 @@ export async function handler(req,res){
 
         if(req.method === "POST"){
 
-            let user = await Homeowner.findOneAndUpdate({$amd:{_id: req?.body?.id, "houses.$._id": req?.body?.houseId}},{
+            let user = await House.findOneAndUpdate({_id: req?.body?.id},{
                 $push: {"houses.$.instructions":req?.body?.instructions}
             },{
                 rawResults: true
