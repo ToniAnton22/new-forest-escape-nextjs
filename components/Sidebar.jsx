@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import {RxSketchLogo, RxDashboard, RxPerson} from 'react-icons/rx'
 import {FiSettings} from 'react-icons/fi'
-import {SlSpeedometer, SlEnergy, SlBulb, SlBookOpen} from 'react-icons/sl'
+import {SlSpeedometer, SlEnergy, SlBulb, SlBookOpen, SlHome} from 'react-icons/sl'
 import {MdOutlineEnergySavingsLeaf} from 'react-icons/md'
 
 const Sidebar = ({children}) => {
@@ -12,8 +12,8 @@ const Sidebar = ({children}) => {
         <div className='fixed w-20 h-screen p-4 bg-gray-100 border-r-[1px] flex flex-col justify-between'>
             <div className='flex flex-col items-center'>
                 <Link href='/'>
-                    <div className='bg-green-800 text-white p-3 rounded-lg inline-block'>
-                        <SlEnergy size={20}/>
+                    <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer p-3 rounded-lg inline-bloc'>
+                        <SlHome size={25}/>
                     </div>
                 </Link>
                 <span className='border-b-[1px] border-gray-200 w-full p-2'></span>
