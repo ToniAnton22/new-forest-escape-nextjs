@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Modal from '../components/Modal'
 
 const InstructionForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,7 +13,7 @@ const InstructionForm = () => {
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
         <h2>Customers</h2>
-        <h2 className="text-green-700">Welcome back, Client</h2>
+        <Modal/>
       </div>
       <div className="p-4">
       <div className="w-full max-w-screen-lg mx-auto p-4 border rounded-lg bg-white">

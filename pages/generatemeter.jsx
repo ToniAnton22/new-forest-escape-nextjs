@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Modal from '../components/Modal'
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -19,7 +20,7 @@ const Form = () => {
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
         <h2>Generate meter reading</h2>
-        <h2 className="text-green-700">Welcome back, Client</h2>
+        <Modal/>
       </div>
       <div className="p-4">
         <form onSubmit={handleSubmit}>

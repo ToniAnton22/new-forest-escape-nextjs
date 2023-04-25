@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.16.4",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "github:fortawesome/react-fontawesome",
     "@testing-library/jest-dom": "^5.16.5",

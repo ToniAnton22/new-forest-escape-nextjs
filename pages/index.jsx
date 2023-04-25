@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import TopCards from '../components/TopCards'
 import Barchart from '../components/Barchart'
 import RecentOrders from '../components/RecentOrders'
+import Modal from '../components/Modal'
 
 export async function getServerSideProps(context) {
 
