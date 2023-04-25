@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function register() {
     const [formData, setFormData] = useState({
@@ -87,7 +88,7 @@ export default function register() {
   Create Account
 </button>
 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-  Already have an account? <a href="#" className="font-medium text-primary-600 hover:opacity-75 dark:text-primary-500">Login</a>
+  Already have an account? <Link href='/login' className="font-medium text-primary-600 hover:opacity-75 dark:text-primary-500">Login</Link>
 </p>
 {successMessage && <p className='text-center text-green-500'>{successMessage}</p>}
 </form>

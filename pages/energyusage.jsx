@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import UserProfile from '../components/UserProfile'
 import Modal from '../components/Modal'
+import LoginBtn from '../components/LoginBtn';
 
 const DelegateAbilityOptions = [
   'Cleaner',
@@ -21,9 +21,9 @@ const EnergyForm = () => {
   return (
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
-        <h2>Energy Form</h2>
-        <UserProfile />
+        <h2 className='font-semibold'>Energy Form</h2>
         <Modal/>
+        <LoginBtn/>
       </div>
       <div className="p-4">
         <div className="w-full max-w-screen-lg mx-auto p-4 border rounded-lg bg-white overflow-y-auto">

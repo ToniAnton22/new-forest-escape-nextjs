@@ -9,7 +9,7 @@ const Modal = () => {
 
   return (
     <>
-      <button class='font-semibold' onClick={toggleModal}>Welcome Back, Client</button>
+      <button class='bg-blue-500 text-white px-4 py-1 rounded-lg hover:bg-blue-400' onClick={toggleModal}>Account Settings</button>
       {isOpen && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div className="flex items-center justify-center min-h-screen">

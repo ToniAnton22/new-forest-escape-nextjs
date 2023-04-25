@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function login() {
   return (
@@ -35,7 +36,7 @@ export default function login() {
     Sign in
                            </button>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-  Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:opacity-75 dark:text-primary-500">Sign up</a>
+  Don’t have an account yet? <Link href='/register' class="font-medium text-primary-600 hover:opacity-75 dark:text-primary-500">Sign up</Link>
     </p>
     </form>
     </div>

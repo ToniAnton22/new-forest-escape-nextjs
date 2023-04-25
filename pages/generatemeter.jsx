@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../components/Modal'
+import LoginBtn from '../components/LoginBtn';
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -19,8 +20,9 @@ const Form = () => {
   return (
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
-        <h2>Generate meter reading</h2>
+        <h2 className='font-semibold'>Generate Meter Reading</h2>
         <Modal/>
+        <LoginBtn/>
       </div>
       <div className="p-4">
         <form onSubmit={handleSubmit}>
