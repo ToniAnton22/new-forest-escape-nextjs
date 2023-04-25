@@ -20,7 +20,7 @@ export const authOptions = {
                 lastname,
                 delegate
             }
-            const user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${password}`)
+            let user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${password}`)
 
             if(user?.status==302){
                 return user
