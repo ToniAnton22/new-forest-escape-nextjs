@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
   try {
     await dbConnect();
     const client = await clientPromise;
-    const db = client.db("mealtracker");
+    const db = client.db(process.env.MONGODB_DATABASE);
     
 
     const ctx = await getSession(context);
