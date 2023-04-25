@@ -1,21 +1,15 @@
 import { stringify } from 'querystring';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { alertService } from '../lib/alertService';
 
 const InstructionForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     // Handle form submission
-    const send = await fetch(`/api/crud/instructions/createInstructions`,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(data)
-    })
-
-    if(send.status == 201){
-      
-    }
+    console.log(data)
+    alertService.success("Success")
   };
 
   return (
