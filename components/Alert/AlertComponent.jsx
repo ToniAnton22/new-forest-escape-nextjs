@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
-import { alertService, AlertType } from '../services/alert.service';
+import {alertService, AlertType} from '../../lib/alertService';
 
-export { Alert };
+
 
 Alert.propTypes = {
     id: PropTypes.string,
@@ -16,7 +16,7 @@ Alert.defaultProps = {
     fade: true
 };
 
-function Alert({ id, fade }) {
+export function Alert({ id, fade }) {
     const mounted = useRef(false);
     const router = useRouter();
     const [alerts, setAlerts] = useState([]);
@@ -95,7 +95,7 @@ function Alert({ id, fade }) {
         const classes = ['alert', 'alert-dismissable'];
 
         const alertTypeClass = {
-            [AlertType.Success]: 'alert-success',
+            [AlertType.Success]: 'alert alert-success',
             [AlertType.Error]: 'alert-danger',
             [AlertType.Info]: 'alert-info',
             [AlertType.Warning]: 'alert-warning'

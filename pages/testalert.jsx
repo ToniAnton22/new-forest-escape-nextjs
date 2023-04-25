@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { alertService } from '../services/alert.service';
+import  {alertService}  from '../lib/alertService';
 
 export default Home;
 

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
-import { InferGetServerSidePropsType } from 'next'
-import { useEffect } from 'react'
+
 
 export async function getServerSideProps(context) {
   try {
@@ -56,8 +55,7 @@ export default function Home({
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
-        <button onClick={getPermision}>Notifications</button>
-
+     
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
