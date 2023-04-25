@@ -25,7 +25,7 @@ const Barchart = () => {
     labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
     datasets: [
       {
-        label: 'Sales $',
+        label: 'Energy KwH',
         data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
         backgroundColor: 'rgba(53, 162, 235, 0.4)',
         borderColor: 'rgb(53, 162, 235)',
@@ -41,7 +41,7 @@ const Barchart = () => {
       },
       title: {
         display: true,
-        text: 'Daily Revenue',
+        text: 'Energy Usage',
       },
     },
     maintainAspectRatio: false,
