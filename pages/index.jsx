@@ -4,10 +4,16 @@ import Header from "../components/Header"
 import TopCards from '../components/TopCards'
 import Barchart from '../components/Barchart'
 import RecentOrders from '../components/RecentOrders'
+import clientPromise from '../lib/mongodb'
 
 
 
-export default function Home() {
+
+export default function Home({
+  isConnected,
+}) 
+{
+
   return (
     <>
       <Head>
