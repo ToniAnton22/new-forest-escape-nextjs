@@ -1,5 +1,5 @@
 import House from "../../../../lib/schema/Houses"
-export async function handler(req,res){
+export default async function handler(req,res){
     let house = await House.findOne(req.body.id)
     if(house){
        let reading = house.readings.uploadedBy(req.body.author)

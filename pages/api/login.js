@@ -1,26 +1,31 @@
 import {compare} from "bcrypt"
 import Users from "../../lib/schema/Users"
+import dbConnect from "../../lib/dbConnect"
 
-export async function handler(req,res){
-
+export default async function handler(req,res){
+    await dbConnect()
+    console.log("I am in login")
     if(!req?.query){
         res.status(400).json({message:"Bad Input"})
         return
     }
     try{
+        console.log("I am now in route with" + req.query.email)
 
         if(req.method === "GET"){
             
             const user = await Users.findOne({email:req?.query?.email})
+            if(user){
+                const matchPass = await compare(req?.query?.password, user?.password)
 
-            const matchPass = await compare(req?.query?.password, user?.password)
-
-            if(matchPass){
-
-                res.status(302).json(user)
-                return
+                if(matchPass){
+                    console.log("Passed")
+                    res.status(302).json(user)
+                    return
+                }
             }
-            res.status(404).json({message:"Not found"})
+
+            res.status(401).json({message:"Not authorized"})
 
         }else{
             res.status(405).json({message:"Method not allowed"})

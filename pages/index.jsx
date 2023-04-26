@@ -5,7 +5,7 @@ import TopCards from '../components/TopCards'
 import Barchart from '../components/Barchart'
 import RecentOrders from '../components/RecentOrders'
 import clientPromise from '../lib/mongodb'
-import { getSession } from "next-auth/react";
+import { getSession,useSession } from "next-auth/react";
 import dbConnect from "../lib/dbConnect";
 
   
@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
     // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
-      props: { isConnected: true },
+      props: { isConnected: true, session: ctx },
     };
   } catch (e) {
     console.error(e);
@@ -44,9 +44,11 @@ export async function getServerSideProps(context) {
 
 
 export default function Home({
-  isConnected,
+  isConnected
 }) 
 {
+  const {data:session} = useSession()
+  console.log(session)
 
   return (
     <>

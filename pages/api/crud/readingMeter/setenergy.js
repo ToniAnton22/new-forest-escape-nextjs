@@ -1,5 +1,5 @@
 import Houses from "../../../../lib/schema/Houses"
-export async function handler(req,res){
+export default async function handler(req,res){
     if(!req.body){
         req.status(400).json({message:"Bad request, please try again"})
         return
