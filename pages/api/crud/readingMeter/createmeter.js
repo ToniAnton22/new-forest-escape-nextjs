@@ -5,5 +5,6 @@ export async function handler(req,res){
         house.readings.push(req.body.readings)
     }
     await house.save()
+    
     res.status(201).json({message:"successfully created"})
 }

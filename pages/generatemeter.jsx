@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { alertService } from '../lib/alertService';
 
 const Form = () => {
   const [image, setImage] = useState(null);
@@ -10,9 +11,22 @@ const Form = () => {
     setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted!');
+   
+    const sendTo = await fetch(`/api/crud/readingMeter/createmeter`,{
+      method:"POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({id,image,date,time,reading})
+    })
+
+    if(sendTo.status == 201){
+      alertService.success("Meter created successfully")
+    }else{
+      let mes = await sendTo.json()
+      alertService.error(mes.message)
+    }
+
   };
 
   return (

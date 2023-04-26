@@ -15,7 +15,7 @@ export async function handler(req,res){
                 rawResults: true
             })
             await user.save()
-            if(user?.ok){
+            if(user?.modifiedCount == 1){
                 res.status(201).json({message:"Created"})
                 return
             }

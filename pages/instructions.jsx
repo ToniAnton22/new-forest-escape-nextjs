@@ -8,8 +8,17 @@ const InstructionForm = () => {
 
   const onSubmit = async (data) => {
     // Handle form submission
-    console.log(data)
-    alertService.success("Success")
+    let sendTo = await fetch("/api/curd/instructions/createInstructions",{
+      method:"Post",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(data)
+    })
+    if(sendTo == 201){
+      alertService.success("The operation was a success")
+    }else{
+      messages = await sendTo.json()
+      alertService.error(messages.message)
+    }
   };
 
   return (
