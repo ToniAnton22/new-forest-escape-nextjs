@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { BsPersonFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { data } from '../data/data';
+import Modal from '../components/Modal'
+import LoginBtn from '../components/LoginBtn'
 import Users from "../lib/schema/Users"
 import dbConnect from '../lib/dbConnect';
 
@@ -10,8 +12,9 @@ const Customers = ({isConnected, users}) => {
   return (
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
-        <h2>Customers</h2>
-        <h2 className="text-green-700">Welcome back, Client</h2>
+        <h2 className='font-semibold'>Customers</h2>
+        <Modal/>
+        <LoginBtn/>
       </div>
       <div className="p-4">
         <div className="w-full max-w-screen-lg mx-auto p-4 border rounded-lg bg-white overflow-y-auto">

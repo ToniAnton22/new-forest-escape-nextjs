@@ -10,6 +10,8 @@ import dbConnect from "../lib/dbConnect";
 
 export async function getServerSideProps(context) {
   
+export async function getServerSideProps(context) {
+
 
   try {
     await dbConnect();
@@ -37,7 +39,10 @@ export async function getServerSideProps(context) {
     };
   }
 
+
 }
+  
+
 
 export default function Home({
   isConnected,
@@ -52,7 +57,7 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-200 min-h-screen">
+      <main className="bg-green-50 min-h-screen">
         <Header/>
         <TopCards/>
         <div className='p-4 grid md:grid-cols-3 grid-cols-1 gap-4'>
