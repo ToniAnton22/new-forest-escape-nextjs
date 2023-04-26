@@ -8,7 +8,6 @@ import clientPromise from '../lib/mongodb'
 import { getSession } from "next-auth/react";
 import dbConnect from "../lib/dbConnect";
 
-export async function getServerSideProps(context) {
   
 export async function getServerSideProps(context) {
 
