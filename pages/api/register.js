@@ -1,8 +1,10 @@
 import {compare} from "bcrypt"
 import Users from "../../lib/schema/Users"
+import dbConnect from "../../lib/dbConnect"
 
-export async function handler(req,res){
+export default async function handler(req,res){
 
+    await dbConnect()
     if(!req.query){
         res.status(400).json({message:"Bad Input"})
         return
@@ -12,16 +14,18 @@ export async function handler(req,res){
         if(req.method === "GET"){
             let user;
 
-            if(req?.query?.role === "Guest"){
+            console.log(req?.query?.role)
+            if(req?.query?.role == "guest"){
+                console.log("guest")
                 user = await Users.create({
-                    firstName: req?.query?.firstname,
+                    firstName: req?.query?.firstName,
                     email: req?.query?.email,
                     password: req?.query?.password,
                     lastName: req?.query?.lastName,
                     delegated: req?.query?.delegate      
                 })                
             }
-            if(req?.query?.role === "Homeowner"){
+            if(req?.query?.role == "homeowner"){
                 user = await Users.create({
                     fullName: req?.query?.firstname + " " + req?.query?.lastname,
                       houses: null,
@@ -30,7 +34,7 @@ export async function handler(req,res){
                       houseOwner: 1,
                 })
             }
-            if(req?.query?.role === "Agency"){
+            if(req?.query?.role == "agency"){
                 user = await Users.create({
                     agencyName: "",
                     agentName: req?.query?.firstname + " " + req?.query?.lastname,
@@ -41,8 +45,10 @@ export async function handler(req,res){
             }
 
             await user.save()
+            console.log(user)
             if(user instanceof Users){
                 res.status(201).json(user)
+                return user
             }
             res.status(400).json({message:"Bad request"})
         }else{

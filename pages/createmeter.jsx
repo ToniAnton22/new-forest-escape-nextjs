@@ -6,8 +6,11 @@ import LoginBtn from '../components/LoginBtn';
 const Form = () => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // Handle form submission
+    const reading = {
+      
+    }
   };
 
   return (

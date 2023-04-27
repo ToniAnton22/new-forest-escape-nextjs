@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { alertService } from '../lib/alertService';
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn';
 
@@ -14,8 +15,30 @@ const EnergyForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [delegateAbility, setDelegateAbility] = useState('');
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    total_Cost = (data?.currentKwhRate*data?.energyUsed) + data?.bufferAmount
+
+    const tarif = {
+      energyTarif: data?.currentKwhRate,
+      bufferAmount: data?.bufferAmount,
+      total_Cost: total_Cost,
+      energyUsed: data?.energyUsed,
+    }
+
+    const sent = await fetch("/api/crud/readingMeter/setEnergy",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({address,tarif})
+    })
+
+    if(sent.status == 200){
+      alertService.success("Success!")
+    }
+    else{
+      const messages = await sent.json()
+      alertService.error(messages.message)
+    }
   };
 
   return (

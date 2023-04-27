@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
+import {signIn} from "next-auth/react"
 
 export default function register() {
     const [formData, setFormData] = useState({
@@ -25,6 +26,9 @@ export default function register() {
       const handleSubmit = (event) => {
         event.preventDefault();
         setSuccessMessage("Form submitted!");
+        signIn("credentials", {redirect:"/" ,email:formData.email,password:formData.password,firstName:formData.firstName,lastName:formData.lastName,
+          role:formData.role,delegate:formData.delegate
+        })
         console.log(formData);
       };
       

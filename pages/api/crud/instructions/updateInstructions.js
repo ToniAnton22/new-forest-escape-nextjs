@@ -1,6 +1,6 @@
 import House from "../../../../lib/schema/Houses"
 
-export async function handler(req,res){
+export default async function handler(req,res){
     if(!req?.body){
         res.status(400).json({message:"Bad request, please try again"})
         return
@@ -15,7 +15,7 @@ export async function handler(req,res){
                 rawResults: true
             })
             await user.save()
-            if(user?.ok){
+            if(user?.modifiedCount == 1){
                 res.status(201).json({message:"Created"})
                 return
             }

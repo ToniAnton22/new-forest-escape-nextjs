@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import {data} from '../data/data'
+import Visitors from '../lib/schema/Visitors'
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn'
 
@@ -54,5 +55,38 @@ const orders = () => {
     </div>
   )
 }
+export async function getServerSideProps(context) {
+  
+
+    try {
+      await dbConnect();
+      const client = await clientPromise;
+      const db = client.db(process.env.MONGODB_DATABASE);
+      
+  
+      const ctx = await getSession(context);
+      // `await clientPromise` will use the default database passed in the MONGODB_URI
+      // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
+      //
+      // `const client = await clientPromise`
+      // `const db = client.db("myDatabase")`
+      //
+      // Then you can execute queries against your database like so:
+      // db.find({}) or any of the MongoDB Node Driver commands
+  
+      const visitors = await Visitors.find({}, 'booking')
+  
+  
+      return {
+        props: { isConnected: true, bookings: JSON.parse(JSON.stringify(visitors)) },
+      };
+    } catch (e) {
+      console.error(e);
+      return {
+        props: { isConnected: false },
+      };
+    }
+  
+  }
 
 export default orders

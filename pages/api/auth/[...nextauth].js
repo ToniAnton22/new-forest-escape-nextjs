@@ -10,28 +10,44 @@ export const authOptions = {
         name:"Credentials",
 
         async authorize(credentials,req){
-            const {email,password,firstname,lastname,delegate,role} = credentials
-            const hashedPassword =hash(password,process.env.SALT_ROUNDS)
-            const details = {
-                email:email,
-                password:hashedPassword,
-                role: role,
-                firstname,
-                lastname,
-                delegate
-            }
-            let user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${password}`)
+          if(credentials?.login){
+            console.log("in first if")
+            const {email,password} = credentials
+            console.log(process.env.SALT_ROUNDS)
+            const hashedPassword = await new Promise((resolve, reject) => {
+              hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
+                if (err) reject(err)
+                resolve(hash)
+              });
+            })
+          
+            console.log(hashedPassword)
+            let user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${hashedPassword}`)
 
             if(user?.status==302){
                 return user
             }
-            user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?details=${details}`)
-
-            if(user?.status==201){
-                return user
-            }
             return null
+        }else{
+
+          const {email,password,firstName,lastName,delegate,role} = credentials
+          const hashedPassword = await new Promise((resolve, reject) => {
+            hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
+              if (err) reject(err)
+              resolve(hash)
+            });
+          })
+
+          user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
+
+          if(user?.status==201){
+              return user
+          }else{
+            return null
+          }
+
         }
+      } 
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
