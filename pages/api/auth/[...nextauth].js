@@ -10,45 +10,50 @@ export const authOptions = {
         name:"Credentials",
 
         async authorize(credentials,req){
-          if(credentials?.login){
-            console.log("in first if")
-            const {email,password} = credentials
-            console.log(process.env.SALT_ROUNDS)
+          try{
+            if(credentials?.login){
+              console.log("in first if")
+              const {email,password} = credentials
+              console.log(process.env.SALT_ROUNDS)
+              const hashedPassword = await new Promise((resolve, reject) => {
+                hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
+                  if (err) reject(err)
+                  resolve(hash)
+                });
+              })
+            
+              console.log(hashedPassword)
+              let user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${hashedPassword}`)
+  
+              if(user?.status==302){
+                  return user
+              }
+              return null
+          }else{
+            console.log("HERE")
+            const {email,password,firstName,lastName,delegate,role} = credentials
             const hashedPassword = await new Promise((resolve, reject) => {
               hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
                 if (err) reject(err)
                 resolve(hash)
               });
             })
-          
-            console.log(hashedPassword)
-            let user = await fetch(`${process.env.NEXTAUTH_URL}/api/login?email=${email}&password=${hashedPassword}`)
-
-            if(user?.status==302){
-                return user
+            console.log(email, role)
+            let user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
+            const send = await user.json()
+            if(user?.status==201){
+              console.log(user)
+              return send
+            }else{
+              return null
             }
-            return null
-        }else{
-          console.log("HERE")
-          const {email,password,firstName,lastName,delegate,role} = credentials
-          const hashedPassword = await new Promise((resolve, reject) => {
-            hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
-              if (err) reject(err)
-              resolve(hash)
-            });
-          })
-          console.log(email, role)
-          let user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
-          const send = await user.json()
-          if(user?.status==201){
-       
-            return send
-          }else{
+  
+          }
+          }catch(e){
+            console.error(e)
             return null
           }
-
-        }
-      } 
+        } 
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
