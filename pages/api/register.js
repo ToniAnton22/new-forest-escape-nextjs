@@ -27,11 +27,11 @@ export default async function handler(req,res){
             }
             if(req?.query?.role == "homeowner"){
                 user = await Users.create({
-                    fullName: req?.query?.firstname + " " + req?.query?.lastname,
-                      houses: null,
-                      email: req?.query?.email,
-                      password: req?.query?.password,
-                      houseOwner: 1,
+                    fullName: req?.query?.firstName + " " + req?.query?.lastName,
+                    houses: null,
+                    email: req?.query?.email,
+                    password: req?.query?.password,
+                    houseOwner: 1,
                 })
             }
             if(req?.query?.role == "agency"){
