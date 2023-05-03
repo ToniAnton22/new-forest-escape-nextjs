@@ -23,7 +23,14 @@ export default async function handler(req,res){
                     password: req?.query?.password,
                     lastName: req?.query?.lastName,
                     delegated: req?.query?.delegate      
-                })                
+                })  
+                await user.save()
+   
+                if(user instanceof Users){
+                    console.log(user)
+                    res.status(201).json(user)
+                    return
+                }              
             }
             if(req?.query?.role == "homeowner"){
                 user = await Homeowners.create({
@@ -33,6 +40,13 @@ export default async function handler(req,res){
                     password: req?.query?.password,
                     houseOwner: 1,
                 })
+                await user.save()
+   
+                if(user instanceof Homeowners){
+                    console.log(user)
+                    res.status(201).json(user)
+                    return
+                }
             }
             if(req?.query?.role == "agency"){
                 console.log("agency")
@@ -43,15 +57,15 @@ export default async function handler(req,res){
                     email:req?.query?.email,
                     password: req?.query?.password,    
                 })
+                await user.save()
               
+                if(user instanceof Agency){
+                    console.log(user)
+                    res.status(201).json(user)
+                    return
+                }
             }
-
-            await user.save()
            
-            if(user instanceof Users){
-                res.status(201).json(user)
-                return
-            }
             res.status(400).json({message:"Bad request"})
             return
         }else{
