@@ -29,7 +29,7 @@ export const authOptions = {
             }
             return null
         }else{
-
+          console.log("HERE")
           const {email,password,firstName,lastName,delegate,role} = credentials
           const hashedPassword = await new Promise((resolve, reject) => {
             hash(password, parseInt(process.env.SALT_ROUNDS), function(err, hash) {
@@ -37,7 +37,7 @@ export const authOptions = {
               resolve(hash)
             });
           })
-
+          console.log(email, role)
           let user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
           const send = await user.json()
           if(user?.status==201){

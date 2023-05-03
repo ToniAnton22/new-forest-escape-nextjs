@@ -1,6 +1,8 @@
 import {compare} from "bcrypt"
 import Users from "../../lib/schema/Users"
 import dbConnect from "../../lib/dbConnect"
+import Agency from "../../lib/schema/Agency"
+import Homeowners from "../../lib/schema/Homeowners"
 
 export default async function handler(req,res){
 
@@ -10,11 +12,9 @@ export default async function handler(req,res){
         return
     }
     try{
-
+        
         if(req.method === "GET"){
             let user;
-
-            console.log(req?.query?.role)
             if(req?.query?.role == "guest"){
                 console.log("guest")
                 user = await Users.create({
@@ -26,7 +26,7 @@ export default async function handler(req,res){
                 })                
             }
             if(req?.query?.role == "homeowner"){
-                user = await Users.create({
+                user = await Homeowners.create({
                     fullName: req?.query?.firstName + " " + req?.query?.lastName,
                     houses: null,
                     email: req?.query?.email,
@@ -35,13 +35,15 @@ export default async function handler(req,res){
                 })
             }
             if(req?.query?.role == "agency"){
-                user = await Users.create({
-                    agencyName: "",
-                    agentName: req?.query?.firstname + " " + req?.query?.lastname,
+                console.log("agency")
+                user = await Agency.create({
+                    agencyName: "Save Trees",
+                    agentName: req?.query?.firstName + " " + req?.query?.lastName,
                     role: "admin",
                     email:req?.query?.email,
                     password: req?.query?.password,    
                 })
+              
             }
 
             await user.save()

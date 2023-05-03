@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
-import {signIn} from "next-auth/react"
+import {signIn, signOut} from "next-auth/react"
 
 export default function register() {
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export default function register() {
       };
 
       const handleSubmit = (event) => {
-       
+        event.preventDefault()
         setSuccessMessage("Form submitted!");
         signIn("credentials", {redirect:"/" ,email:formData.email,password:formData.password,firstName:formData.firstName,lastName:formData.lastName,
           role:formData.role,delegate:formData.delegate
@@ -90,6 +90,7 @@ export default function register() {
 >
   Create Account
 </button>
+<button onClick={signOut}>Press me</button>
 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
   Already have an account? <Link href='/login' className="font-medium text-primary-600 hover:opacity-75 dark:text-primary-500">Login</Link>
 </p>
