@@ -60,14 +60,14 @@ export const authOptions = {
   callbacks: {
     async jwt({ token,user,account }) {
       if(account){
-        token.user.id = user?.id,
-        token.userRole = user?.role || "none"
+        token?.id = user?.id,
+        token?.userRole = user?.role || "none"
       }
         return token
     },
     async session({token}){
-        session.userRole = token.userRole
-        session.user.id = token.user.id
+        session?.userRole = token.userRole
+        session?.user?.id = token.id
         return session
     }
   },
