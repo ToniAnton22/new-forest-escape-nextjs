@@ -45,12 +45,13 @@ export default async function handler(req,res){
             }
 
             await user.save()
-            console.log(user)
+           
             if(user instanceof Users){
                 res.status(201).json(user)
-                return user
+                return
             }
             res.status(400).json({message:"Bad request"})
+            return
         }else{
             res.status(405).json({message:"Method not allowed"})
         }

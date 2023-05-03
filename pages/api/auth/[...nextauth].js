@@ -39,9 +39,10 @@ export const authOptions = {
           })
 
           let user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
-
+          const send = await user.json()
           if(user?.status==201){
-              return user
+       
+            return send
           }else{
             return null
           }
@@ -60,14 +61,14 @@ export const authOptions = {
   callbacks: {
     async jwt({ token,user,account }) {
       if(account){
-        token?.id = user?.id,
-        token?.userRole = user?.role || "none"
+        token.id = user?.id
+        token.userRole = user?.role || "none"
       }
         return token
     },
-    async session({token}){
-        session?.userRole = token.userRole
-        session?.user?.id = token.id
+    async session({token,session}){
+        session.userRole = token.userRole
+        session.user.id = token.id
         return session
     }
   },

@@ -6,9 +6,6 @@ import bcrypt from "bcryptjs"
 
 export default function login() {
   const handleSubmit = async (e) =>{
-    e.preventDefault()
-   console.log(e.target.password.value)
-
 
    const sign = await signIn('credentials',{redirect:false, email:e.target.email.value, password:e.target.password.value,login:true})
    
