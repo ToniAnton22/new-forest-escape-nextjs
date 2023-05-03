@@ -38,7 +38,7 @@ export const authOptions = {
             });
           })
 
-          user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
+          let user = await fetch(`${process.env.NEXTAUTH_URL}/api/register?email=${email}&password=${hashedPassword}&firstName=${firstName}&lastName=${lastName}&delegate=${delegate}&role=${role}`)
 
           if(user?.status==201){
               return user
