@@ -26,7 +26,7 @@ export default function register() {
       const handleSubmit = (event) => {
         event.preventDefault()
         setSuccessMessage("Form submitted!");
-        signIn("credentials", {redirect:"/" ,email:formData.email,password:formData.password,firstName:formData.firstName,lastName:formData.lastName,
+        signIn("credentials", {redirect:false ,email:formData.email,password:formData.password,firstName:formData.firstName,lastName:formData.lastName,
           role:formData.role,delegate:formData.delegate
         })
       };

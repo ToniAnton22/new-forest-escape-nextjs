@@ -52,7 +52,7 @@ export default async function handler(req,res){
                 console.log("agency")
                 user = await Agency.create({
                     agencyName: "Save Trees",
-                    agentName: req?.query?.firstName + " " + req?.query?.lastName,
+                    fullName: req?.query?.firstName + " " + req?.query?.lastName,
                     role: "admin",
                     email:req?.query?.email,
                     password: req?.query?.password,    
@@ -60,7 +60,7 @@ export default async function handler(req,res){
                 await user.save()
               
                 if(user instanceof Agency){
-                    console.log(user)
+                   
                     res.status(201).json(user)
                     return
                 }
