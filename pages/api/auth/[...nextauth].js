@@ -58,7 +58,7 @@ export const authOptions = {
     colorScheme: "light",
   },
   callbacks: {
-    async jwt({ token,user }) {
+    async jwt({ token,user,account }) {
       if(account){
         token.user.id = user?.id,
         token.userRole = user?.role || "none"
