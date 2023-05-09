@@ -53,6 +53,11 @@ const Sidebar = ({children}) => {
                         <SlBookOpen size={25}/>
                     </div>
                 </Link>
+                <Link href='/houses'>
+                    <div title='houses' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                        <SlBookOpen size={25}/>
+                    </div>
+                </Link>
             </div>
         </div>
         <main className='ml-20 w-full'>{children}</main>
