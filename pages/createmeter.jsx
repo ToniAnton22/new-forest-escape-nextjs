@@ -9,10 +9,30 @@ const Form = () => {
   const onSubmit = async (data) => {
     // Handle form submission
     const reading = {
-      
+      homeReference: data.homeReference,
+      homeAddress: data.homeAddress,
+      preReading: data.preReading,
+      postReading: data.postReading,
+    }
+
+    const response = await fetch('/api/create-reading', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        readings: reading,
+      }),
+    });
+    
+    if (response.ok) {
+      // Handle successful response
+      console.log('Reading created successfully');
+    } else {
+      // Handle error response
+      console.error('Failed to create reading');
     }
   };
-
   return (
     <div className="bg-green-50 min-h-screen">
       <div className="flex justify-between p-4">
