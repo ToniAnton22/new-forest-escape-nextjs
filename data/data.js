@@ -7,7 +7,7 @@ export const data = [
       },
       total: 2795.95,
       status: 'On Hold',
-      method: 'PayPal',
+      method: '123 Main Street, London SE1 7TP',
       date: '15 Minutes ago',
     },
     {
@@ -18,7 +18,7 @@ export const data = [
       },
       total: 1195.95,
       status: 'Processing',
-      method: 'PayPal',
+      method: '456 High Street, Manchester M15 4RR',
       date: '23 Minutes ago',
     },
     {
@@ -29,7 +29,7 @@ export const data = [
       },
       total: 495.85,
       status: 'Completed',
-      method: 'Visa',
+      method: '789 Park Avenue, Edinburgh EH4 2BN',
       date: '1 Hour ago',
     },
     {
@@ -40,7 +40,7 @@ export const data = [
       },
       total: 150.45,
       status: 'Processing',
-      method: 'MasterCard',
+      method: '101 Oxford Road, Bristol BS8 1TH',
       date: '1 Hour ago',
     },
     {
@@ -51,7 +51,7 @@ export const data = [
       },
       total: 175.25,
       status: 'On Hold',
-      method: 'PayPal',
+      method: '321 Baker Street, Glasgow G1 1LG',
       date: '2 Hour ago',
     },
     {
@@ -62,7 +62,7 @@ export const data = [
       },
       total: 1295.75,
       status: 'Completed',
-      method: 'Check',
+      method: '567 Elm Street, Birmingham B15 2TT',
       date: '3 Hour ago',
     },
     {
@@ -73,7 +73,7 @@ export const data = [
       },
       total: 89.95,
       status: 'Completed',
-      method: 'MasterCard',
+      method: '890 Pine Road, Newcastle NE1 4DP',
       date: '3 Hour ago',
     },
     {
@@ -84,7 +84,7 @@ export const data = [
       },
       total: 689.45,
       status: 'Completed',
-      method: 'Visa',
+      method: '234 Maple Avenue, Cardiff CF10 1BJ',
       date: '7 Hour ago',
     },
     {
@@ -95,7 +95,7 @@ export const data = [
       },
       total: 14.99,
       status: 'Completed',
-      method: 'PayPal',
+      method: '678 Oak Lane, Liverpool L1 3BX',
       date: '1 Day ago',
     },
     {
@@ -106,7 +106,7 @@ export const data = [
       },
       total: 218.99,
       status: 'Completed',
-      method: 'MasterCard',
+      method: '901 Chestnut Drive, Sheffield S1 2HE',
       date: '1 Day ago',
     },
   ];

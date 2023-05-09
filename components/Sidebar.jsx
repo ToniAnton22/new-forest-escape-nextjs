@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import {RxSketchLogo, RxDashboard, RxPerson} from 'react-icons/rx'
 import {FiSettings} from 'react-icons/fi'
-import {SlSpeedometer, SlEnergy, SlBulb, SlBookOpen, SlHome} from 'react-icons/sl'
+import {SlSpeedometer, SlEnergy, SlBulb, SlBookOpen, SlHome, SlCalculator} from 'react-icons/sl'
 import {MdOutlineEnergySavingsLeaf} from 'react-icons/md'
 
 const Sidebar = ({children}) => {
@@ -15,7 +15,7 @@ const Sidebar = ({children}) => {
                     <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer p-3 rounded-lg inline-bloc'>
                         <SlHome size={25}/>
                     </div>
-                    <hr />
+                    <hr className='border-black'/>
                 </Link>
                 <span className='border-b-[1px] border-gray-200 w-full p-2'></span>
                 <Link href='/createmeter'>
@@ -51,6 +51,17 @@ const Sidebar = ({children}) => {
                 <Link href='/instructions'>
                     <div title='Instructions' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
                         <SlBookOpen size={25}/>
+                    </div>
+                </Link>
+<<<<<<< HEAD
+                <Link href='/houses'>
+                    <div title='houses' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                        <SlBookOpen size={25}/>
+=======
+                <Link href='/calculatecost'>
+                    <div title='Calculate' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                        <SlCalculator size={25}/>
+>>>>>>> d71da28a513247aaed84849d3b6f7125f4ee9533
                     </div>
                 </Link>
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn';
+import {SlCheck} from 'react-icons/sl'
 
 const Form = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -102,12 +103,7 @@ const Form = () => {
               />
            
             </div>
-            <button
-              type="submit"
-              className="bg-green-700 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 text-center width-50%"
-            >
-              Calculate
-            </button>
+            <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>
         <div className="w-1/2 max-w-screen-lg mx-auto p-4 border rounded-lg bg-white">
@@ -178,12 +174,7 @@ const Form = () => {
               />
            
             </div>
-            <button
-              type="submit"
-              className="bg-green-700 text-white font-medium py-2 px-4 rounded-lg hover:bg-green-600 text-center width-50%"
-            >
-              Calculate
-            </button>
+            <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>
       </div>
