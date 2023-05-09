@@ -22,15 +22,15 @@ const Form = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label
-                htmlFor="kWhRate"
+                htmlFor="houseOwner"
                 className="block text-green-700 font-medium mb-2 text-center"
               >
                 Owner Name
               </label>
               <input
                 type="number"
-                name="kWhRate"
-                id="kWhRate"
+                name="houseOwner"
+                id="houseOwner"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 placeholder='John Smith'
               />
@@ -38,15 +38,15 @@ const Form = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="energyUsed"
+                htmlFor="houseAddress"
                 className="block text-green-700 font-medium mb-2 text-center"
               >
                 Address
               </label>
               <input
-                type="number"
-                name="energyUsed"
-                id="energyUsed"
+                type="text"
+                name="houseAddress"
+                id="houseAddress"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 placeholder='111 Dinosaur Street'
               />
@@ -54,15 +54,15 @@ const Form = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="homeReference"
+                htmlFor="housePostcode"
                 className="block text-green-700 font-medium mb-2 text-center"
               >
                 Postcode
               </label>
               <input
                 type="text"
-                name="homeReference"
-                id="homeReference"
+                name="housePostcode"
+                id="housePostcode"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 placeholder='LN2 5UB'
               />
