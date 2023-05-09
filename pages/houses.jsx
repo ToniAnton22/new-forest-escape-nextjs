@@ -4,6 +4,7 @@ import {data} from '../data/data'
 import Visitors from '../lib/schema/Visitors'
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn'
+import dbConnect from '../lib/dbConnect'
 
 const orders = () => {
   return (
@@ -24,7 +25,7 @@ const orders = () => {
                     {data.map((order,id)=>{
                         return (
                           <li key={id} className='bg-gray-50 hover:bg-gray-100 rounded-lg my-3 p-2 grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 items-center justify-between cursor-pointer'>
-                          <a href={`/houses/${order.houseId}`} className='flex'>
+                          <a href={`/houses/123`} className='flex'>
                             <div className='pl-4'>
                               <p className='text-gray-800 font-bold'>{order.name.first} {order.name.last}</p>
                               <p className='text-gray-800 text-sm'>{order.house}</p>
