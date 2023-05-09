@@ -4,6 +4,9 @@ import {data} from '../data/data'
 import Visitors from '../lib/schema/Visitors'
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn'
+import dbConnect from "../lib/dbConnect";
+import clientPromise from '../lib/mongodb'
+import {getSession} from "next-auth/react"
 
 const orders = () => {
   return (

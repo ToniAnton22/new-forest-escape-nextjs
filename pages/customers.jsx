@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { BsPersonFill, BsThreeDotsVertical } from 'react-icons/bs';
 import { data } from '../data/data';
+import {getSession} from "next-auth/react"
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn'
 import Users from "../lib/schema/Users"
 import dbConnect from '../lib/dbConnect';
+import clientPromise from '../lib/mongodb'
 
 const Customers = ({isConnected, users}) => {
 

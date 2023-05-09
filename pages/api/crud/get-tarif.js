@@ -1,4 +1,4 @@
-import Houses from "../../../../lib/schema/Houses"
+import Homeowners from "../../../../lib/schema/Homeowners"
 export default async function handler(req,res){
     if(!req.body){
         req.status(400).json({message:"Bad request, please try again"})

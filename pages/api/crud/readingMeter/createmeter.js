@@ -1,8 +1,8 @@
-import House from "../../../../lib/schema/Houses"
+import Homeowners from "../../../../lib/schema/Homeowners"
 export default async function handler(req,res){
-    let house = await House.findOne(req.body.id)
+    let home = await Homeowners.findOne(req.body.id)
     if(house){
-        house.readings.push(req.body.readings)
+        home.house.readings.push(req.body.readings)
     }
     await house.save()
     

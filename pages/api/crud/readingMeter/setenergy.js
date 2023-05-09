@@ -1,4 +1,4 @@
-import Houses from "../../../../lib/schema/Houses"
+import Homeowners from "../../../../lib/schema/Homeowners"
 export default async function handler(req,res){
     if(!req.body){
         req.status(400).json({message:"Bad request, please try again"})
@@ -7,8 +7,8 @@ export default async function handler(req,res){
     try{
         if(req.method === "POST"){
 
-            const data = await Houses.updateOne({address:req?.body?.address},
-                {tarif:req?.body?.tarif},{rawResults:true})
+            const data = await Homeowners.updateOne({"house.address":req?.body?.address},
+                {"house.tarif":req?.body?.tarif},{rawResults:true})
             
             if(data.modifiedCount == 1){
                 res.status(200).json(data)

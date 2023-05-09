@@ -10,7 +10,7 @@ export default async function handler(req,res){
         if(req.method === "POST"){
 
             let user = await Homeowners.findOneAndUpdate({_id: req?.body?.id},{
-                $push: {"houses.$.instructions":req?.body?.instructions}
+                $push: {"house.instructions":req?.body?.instructions}
             },{
                 rawResults: true
             })

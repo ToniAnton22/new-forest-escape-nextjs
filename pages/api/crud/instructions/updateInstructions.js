@@ -1,4 +1,4 @@
-import House from "../../../../lib/schema/Houses"
+import Homeowners from "../../../../lib/schema/Homeowners"
 
 export default async function handler(req,res){
     if(!req?.body){
@@ -9,8 +9,8 @@ export default async function handler(req,res){
 
         if(req.method === "POST"){
 
-            let user = await House.findOneAndUpdate({_id: req?.body?.id},{
-                $set: {instructions : req?.body?.instructions}
+            let user = await Homeowners.findOneAndUpdate({_id: req?.body?.id},{
+                $set: {"house.instructions" : req?.body?.instructions}
             },{
                 rawResults: true
             })
