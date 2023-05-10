@@ -32,6 +32,7 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-qr-code": "^2.0.11",
+    "react-use-downloader": "^1.2.4",
     "rxjs": "^7.8.0"
   },
   "eslintConfig": {

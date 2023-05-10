@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
-import Modal from '../../components/Modal'
-import LoginBtn from '../../components/LoginBtn';
+import Modal from '../../../components/Modal'
+import LoginBtn from '../../../components/LoginBtn';
 import QRCode from 'react-qr-code';
 
 const Form = () => {
@@ -42,7 +42,7 @@ const Form = () => {
           <h1>Instruction</h1>
           <div>{instructions}</div>
           <img src={"https://2.bp.blogspot.com/-kWd8UXn0yKs/WAic1rkEduI/AAAAAAAATzw/JEnBAJ7EuCkGslrui0Bcx8V5zBwpyE8sQCLcB/s1600/P1170499.JPG"}></img>
-          {session?.user ? <button onClick={changeInstructions}>Change instructions</button> : ""}
+          {session?.user ? <button onClick={changeInstructions} className='btn'>Change instructions</button> : ""}
         </div>
         <div className="w-full max-w-screen-lg mx-auto p-4 border rounded-lg bg-white">
           {readings.map((value,key) =>{
