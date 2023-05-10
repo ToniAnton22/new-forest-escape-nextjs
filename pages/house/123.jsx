@@ -8,9 +8,6 @@ const Form = () => {
   const { register, handleSubmit, errors } = useForm();
   const [qrCode, setQrCode] = useState(false)
 
-  const generate = () =>{
-    setQrCode(true)
-  }
 
   const onSubmit = (data) => {
 

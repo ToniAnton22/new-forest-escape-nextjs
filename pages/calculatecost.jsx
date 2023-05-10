@@ -3,28 +3,25 @@ import { useForm } from 'react-hook-form';
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn';
 import {SlCheck} from 'react-icons/sl'
+import { alertService } from '../lib/alertService';
 
 const Form = () => {
   const { register, handleSubmit, errors } = useForm();
-
+  const tarif = 0.15
   const onSubmit = (data) => {
     data.preventDefault()
 
     const period = [data.target.periodFrom.value,data.target.periodTo.value]
-    const serialN = data.target.meterSerial.value
-    const reading = data.target.meterReading.value
+    const preReading = data.target.meterReadingPost.value
+    const reading = data.target.meterReadingPre.value
     const mpan = data?.target?.mpan?.value
-    const send= {
-      period,
-      serialN,
-      reading,
-      mpan
+    if(mpan){
+      const total = (parseInt(reading) - parseInt(preReading))* tarif
+      alertService(`Your energy cost is ${total}`)
+    }else{
+      const total = (parseInt(reading) - parseInt(preReading))* 0.12
+      alertService(`Your gas cost is ${total}`)
     }
-    fetch("/api/crud/get-tarif",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(send)
-    })
   };
 
   return (
@@ -44,11 +41,11 @@ const Form = () => {
                 htmlFor="meterReading"
                 className="block text-green-700 text-center font-medium mb-2"
               >
-                Meter Reading
+                Meter Reading Before
               </label>
               <input
                 type="number"
-                name="meterReading"
+                name="meterReadingPre"
                 id="meterReading"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 
@@ -57,53 +54,22 @@ const Form = () => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="meterSerial"
+                htmlFor="meterReadingPost"
                 className="block text-green-700 font-medium mb-2 text-center"
               >
-                Meter Serial Number
+                Meter Reading After
               </label>
               <input
                 type="text"
-                name="meterSerial"
-                id="meterSerial"
+                name="meterReadingPost"
+                id="meterReadingPost"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 
               />
               
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="periodFrom"
-                className="block text-green-700 font-medium mb-2 text-center"
-              >
-                Period from
-              </label>
-              <input
-                type="date"
-                name="periodFrom"
-                id="periodFrom"
-                className="border border-gray-300 p-2 rounded-lg w-full text-center"
-               
-              />
-             
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="periodTo"
-                className="block text-green-700 font-medium mb-2 text-center"
-              >
-                Period To
-              </label>
-              <input
-                type="date"
-                name="periodTo"
-                id="periodTo"
-                className="border border-gray-300 p-2 rounded-lg w-full text-center"
-              
-              />
-           
-            </div>
-            <button type="submit">Clcik me</button>
+        
+            <button type="button" onClick={handleSubmit}>Clcik me</button>
             <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>
@@ -113,15 +79,15 @@ const Form = () => {
                 <h1 className='text-center font-medium mb-2 text-lg' name="mpan" value="mpan">Electricity Consumption</h1>
                 <hr className='mb-4'></hr>
               <label
-                htmlFor="meterReading"
+                htmlFor="meterReadingPre"
                 className="block text-green-700 text-center font-medium mb-2"
               >
                 Meter Reading
               </label>
               <input
                 type="number"
-                name="meterReading"
-                id="meterReading"
+                name="meterReadingPre"
+                id="meterReadingPre"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 
               />
@@ -135,46 +101,15 @@ const Form = () => {
                 Meter Serial Number
               </label>
               <input
-                type="text"
-                name="meterSerial"
-                id="meterSerial"
+                type="number"
+                name="meterReadingPost"
+                id="meterReadingPost"
                 className="border border-gray-300 p-2 rounded-lg w-full text-center"
                 
               />
               
             </div>
-            <div className="mb-4">
-              <label
-                htmlFor="periodFrom"
-                className="block text-green-700 font-medium mb-2 text-center"
-              >
-                Period from
-              </label>
-              <input
-                type="date"
-                name="periodFrom"
-                id="periodFrom"
-                className="border border-gray-300 p-2 rounded-lg w-full text-center"
-               
-              />
-             
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="periodTo"
-                className="block text-green-700 font-medium mb-2 text-center"
-              >
-                Period To
-              </label>
-              <input
-                type="date"
-                name="periodTo"
-                id="periodTo"
-                className="border border-gray-300 p-2 rounded-lg w-full text-center"
-              
-              />
-           
-            </div>
+            <button type="button" onClick={handleSubmit}>Clcik me</button>
             <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>

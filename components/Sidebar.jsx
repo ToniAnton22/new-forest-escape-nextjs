@@ -56,11 +56,12 @@ const Sidebar = ({children}) => {
                 <Link href='/houses'>
                     <div title='houses' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
                         <SlBookOpen size={25}/>
-=======
+                    </div>
+                </Link>
                 <Link href='/calculatecost'>
                     <div title='Calculate' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
                         <SlCalculator size={25}/>
->>>>>>> d71da28a513247aaed84849d3b6f7125f4ee9533
+
                     </div>
                 </Link>
             </div>
