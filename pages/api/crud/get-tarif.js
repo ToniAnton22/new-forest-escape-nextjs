@@ -9,14 +9,14 @@ export default async function handler(req,res){
             console.log(process.env.OCTOPUS_ENERGY)
             let data
             let buf = Buffer.from(process.env.OCTOPUS_ENERGY, 'utf8')
-            if(req.body.mpa){
+            if(!req.body.mpa){
                 data = await fetch(`https://api.octopus.energy/v1/electricity-meter-points/${req.body.reading}/meters/${req.body.serialN}/consumption/`,{
-                    headers:{"Authorization": `Basic ${buf.toString("base64")}`}
+                    headers:{"Authorization": `Bearer ${buf.toString("base64")}`}
                 })
               
             }else{
-                data = await fetch(`https://api.octopus.energy/v1/electricity-meter-points/${req.body.reading}/meters/${req.body.serialN}/consumption/`,{
-                    headers:{"Authorization": `Basic ${buf.toString("base64")}`}
+                data = await fetch(`https://api.octopus.energy/v1/electricity-meter-points/2144919800/meters/${req.body.serialN}/consumption/`,{
+                    headers:{"Authorization": `Bearer ${buf.toString("base64")}`}
                 })
            
             }

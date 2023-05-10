@@ -103,6 +103,7 @@ const Form = () => {
               />
            
             </div>
+            <button type="submit">Clcik me</button>
             <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>
