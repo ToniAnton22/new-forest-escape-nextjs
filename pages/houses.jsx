@@ -1,9 +1,13 @@
 import React from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+import { SlEnergy } from 'react-icons/sl'
 import {data} from '../data/data'
 import Visitors from '../lib/schema/Visitors'
 import Modal from '../components/Modal'
 import LoginBtn from '../components/LoginBtn'
+import dbConnect from '../lib/dbConnect'
+import clientPromise from '../lib/mongodb'
+import { getSession } from 'next-auth/react'
 
 const orders = () => {
   return (
@@ -19,6 +23,7 @@ const orders = () => {
                     <span>Homeowner</span>
                     <span className='sm:text-left text-right'>Image</span>
                     <span className='hidden md:grid'>Address</span>
+                    <span className='hidden md:grid'>Energy Usage</span>
                 </div>
                 <ul>
                     {data.map((order,id)=>{
@@ -36,6 +41,14 @@ const orders = () => {
                           <div className='sm:flex hidden justify-between items-center'>
                             <p>{order.method}</p>
                             <BsThreeDotsVertical/>
+                          </div>
+                          <div className='sm:flex hidden justify-start items-center'>
+                            <div className='bg-purple-100 rounded-lg p-3'>
+                              <SlEnergy className='text-purple-800'/>
+                            </div>
+                            <div className='flex justify-start pl-4 '>
+                              <p className='text-gray-800 font-bold'>{order.total} Kwh</p>
+                            </div>
                           </div>
                         </li>
                         )
