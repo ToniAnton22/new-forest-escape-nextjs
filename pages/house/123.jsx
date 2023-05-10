@@ -1,10 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from '../../components/Modal'
 import LoginBtn from '../../components/LoginBtn';
+import QRCode from 'react-qr-code';
 
 const Form = () => {
   const { register, handleSubmit, errors } = useForm();
+  const [qrCode, setQrCode] = useState(false)
+
+  const generate = () =>{
+    setQrCode(true)
+  }
 
   const onSubmit = (data) => {
 
@@ -76,7 +82,13 @@ const Form = () => {
               Submit
             </button>
             </div> */}
+
           </form>
+          <button onClick={generate}>Generate QR Code</button>
+          {qrCode ? <QRCode
+          size={168}
+          value={"http://localhost:3000/house/readings/123"}
+        /> : ""}
         </div>
       </div>
     </div>
