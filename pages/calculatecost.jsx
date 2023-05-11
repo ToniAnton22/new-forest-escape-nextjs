@@ -69,7 +69,7 @@ const Form = () => {
               
             </div>
         
-            <button type="button" onClick={handleSubmit}>Clcik me</button>
+            <button type="button" onClick={handleSubmit}>Click me</button>
             <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>
@@ -109,7 +109,7 @@ const Form = () => {
               />
               
             </div>
-            <button type="button" onClick={handleSubmit}>Clcik me</button>
+            <button type="button" onClick={handleSubmit}>Click me</button>
             <SlCheck className='text-center h-16 w-8 text-green-700 m-auto cursor-pointer'/>
           </form>
         </div>

@@ -19,48 +19,48 @@ const Sidebar = ({children}) => {
                 </Link>
                 <span className='border-b-[1px] border-gray-200 w-full p-2'></span>
                 <Link href='/createmeter'>
-                    <div title='Create Meter Reading' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Create Meter Reading' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <MdOutlineEnergySavingsLeaf size={25}/>
                     </div>
                 </Link>
                 <Link href='/customers'>
-                    <div title='Customers' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Customers' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <RxPerson size={25}/>
                     </div>
                 </Link>
                 <Link href='/orders'>
-                    <div title='Orders' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Orders' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlSpeedometer size={25}/>
                     </div>
                 </Link>
                 <Link href='/energyusage'>
-                    <div title='Energy Usage' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Energy Usage' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <FiSettings size={25}/>
                     </div>
                 </Link>
                 <Link href='/generatemeter'>
-                    <div title='Generate Meter' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Generate Meter' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlEnergy size={25}/>
                     </div>
                 </Link>
                 <Link href='/setenergy'>
-                    <div title='Set Energy' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Set Energy' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlBulb size={25}/>
                     </div>
                 </Link>
                 <Link href='/instructions'>
-                    <div title='Instructions' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Instructions' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlBookOpen size={25}/>
                     </div>
                 </Link>
                 <Link href='/houses'>
-                    <div title='houses' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='houses' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlLocationPin size={25}/>
                         <SlBookOpen size={25}/>
                     </div>
                 </Link>
                 <Link href='/calculatecost'>
-                    <div title='Calculate' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-4 p-3 rounded-lg inline-block'>
+                    <div title='Calculate' className='bg-gray-100 hover:bg-gray-200 cursor-pointer  my-3 p-3 rounded-lg inline-block'>
                         <SlCalculator size={25}/>
 
                     </div>
