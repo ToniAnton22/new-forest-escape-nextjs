@@ -8,7 +8,7 @@ If you want to learn more about MongoDB, visit the following pages:
 - [MongoDB Documentation](https://docs.mongodb.com/)
 
 ## Deployed Link
-Deployed link can be found here
+Deployed link can be found here: https://new-forest-escape-nextjs-6hyx.vercel.app/
 
 ## How to use
 
