@@ -4,12 +4,46 @@ import Modal from '../../components/Modal'
 import LoginBtn from '../../components/LoginBtn'
 import QRCode from 'react-qr-code';
 import { alertService } from '../../lib/alertService';
+import url from '../../lib/getUrl'
+import dbConnect from "../../lib/dbConnect";
+import { getSession } from 'next-auth/react';
+
+  
+export async function getServerSideProps(context) {
 
 
-export default function one () {
+  try {
+    await dbConnect();    
+
+    const ctx = await getSession(context);
+    // `await clientPromise` will use the default database passed in the MONGODB_URI
+    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
+    //
+    // `const client = await clientPromise`
+    // `const db = client.db("myDatabase")`
+    //
+    // Then you can execute queries against your database like so:
+    // db.find({}) or any of the MongoDB Node Driver commands
+    const url = process.env.NEXTAUTH_URL
+    console.log(url)
+    return {
+      props: { isConnected: true, session: ctx, url },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: { isConnected: false },
+    };
+  }
+
+
+}
+
+export default function one ({url}) {
+ 
   const generate = () =>{
     
-    alertService.success(`QR code has been generated, get the link here: ${process.env.NEXTAUTH_URL}/house/QRCode/2` )
+    alertService.success(`QR code has been generated, get the link here: ${url}/house/QRCode/2` )
 
   }
 
