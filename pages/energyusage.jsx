@@ -17,7 +17,7 @@ const EnergyForm = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
-    total_Cost = (data?.currentKwhRate*data?.energyUsed) + data?.bufferAmount
+    let total_Cost = (data?.currentKwhRate*data?.energyUsed) + data?.bufferAmount
 
     const tarif = {
       energyTarif: data?.currentKwhRate,
@@ -26,10 +26,10 @@ const EnergyForm = () => {
       energyUsed: data?.energyUsed,
     }
 
-    const sent = await fetch("/api/crud/readingMeter/setEnergy",{
+    const sent = await fetch("/api/crud/readingMeter/setenergy",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({address,tarif})
+      body: JSON.stringify({tarif})
     })
 
     if(sent.status == 200){

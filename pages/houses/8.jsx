@@ -9,7 +9,7 @@ import { alertService } from '../../lib/alertService';
 export default function one () {
   const generate = () =>{
     
-    alertService(`QR code has been generated, get the link here: ${process.env.NEXTAUTH_URL}/house/QRCode/8` )
+    alertService.success(`QR code has been generated, get the link here: ${process.env.NEXTAUTH_URL}/house/QRCode/8` )
 
   }
 
