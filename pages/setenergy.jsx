@@ -82,6 +82,43 @@ const Form = () => {
                 className="border border-gray-300 p-2 rounded-lg w-full"
               
               />
+
+           
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="bufferAmount"
+                className="block text-green-700 font-medium mb-2"
+              >
+                Change Buffer Amount
+              </label>
+              <input
+                type="number"
+                name="bufferAmount"
+                id="bufferAmount"
+                className="border border-gray-300 p-2 rounded-lg w-full"
+              
+              />
+
+           
+            </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="changeRate"
+                className="block text-green-700 font-medium mb-2"
+              >
+                Change Rate
+              </label>
+              <input
+                type="number"
+                name="changeRate"
+                id="changeRate"
+                className="border border-gray-300 p-2 rounded-lg w-full"
+              
+              />
+
            
             </div>
             <button
